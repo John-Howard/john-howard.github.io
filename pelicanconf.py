@@ -4,7 +4,7 @@
 AUTHOR = 'John Howard'
 SITENAME = 'John Howard'
 SITEURL = ''
-GITHUB_URL = 'https://github.com/John-Howard'
+# GITHUB_URL = 'https://github.com/John-Howard'
 
 PATH = 'content'
 
