@@ -1,15 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
-AUTHOR = 'jmh'
+AUTHOR = 'John Howard'
 SITENAME = 'John Howard'
 SITEURL = ''
+GITHUB_URL = 'https://github.com/John-Howard'
 
 PATH = 'content'
 
 TIMEZONE = 'Europe/London'
 
 DEFAULT_LANG = 'en'
+
+TYPOGRIFY = True
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
