@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Windows 10 WSL - Corporate self-signed certificates and other fun</title>
+        <link rel="stylesheet" href="https://john-howard.github.io/theme/css/main.css" />
+        <link href="https://john-howard.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="John Howard Atom Feed" />
+        <meta name="description" content="Working behind a corporate firewall can be painful. Windows and development languages and tooling (python, javascript, docker, virtual env..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://john-howard.github.io/">John Howard</a></h1>
+                <nav><ul>
+                    <li><a href="https://john-howard.github.io/pages/about.html">About</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://john-howard.github.io/drafts/windows-10-wsl-corporate-self-signed-certificates-and-other-fun.html" rel="bookmark"
+           title="Permalink to Windows 10 WSL - Corporate self-signed certificates and other fun">Windows 10 WSL - Corporate self-signed certificates and other fun</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-04-29T00:00:00+01:00">
+                Published: Thu 29 April 2021
+        </abbr>
+		<br />
+        <abbr class="modified" title="2021-04-30T15:15:00+01:00">
+                Updated: Fri 30 April 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://john-howard.github.io/author/john-howard.html">John Howard</a>
+        </address>
+<p>In <a href="https://john-howard.github.io/category/work.html">Work</a>.</p>
+<p>tags: <a href="https://john-howard.github.io/tag/windows10.html">windows10</a> <a href="https://john-howard.github.io/tag/wsl.html">wsl</a> <a href="https://john-howard.github.io/tag/corporate.html">corporate</a> </p>
+</footer><!-- /.post-info -->      <h1>Working behind a corporate firewall can be painful.</h1>
+<p>Windows and development languages and tooling (python, javascript, docker, virtual env management, etc.) in a corporate network do not make happy bed fellows. The combination of locked down machines and proxy servers causes me pain daily. Simple stuff is just so hard.</p>
+<p>I'd given up trying in the Windows environment, and then started trying the Windows Subsystem for Linux (WSL); and I'm making far more progress.</p>
+<h1>Certificates</h1>
+<p>More precisely, corporate self-signed certificates. These seem to break most attempts to secure package managers. They are not signed by Certificate Authorities and so poor old pip and other folk throw up their hands with 'install fails with “connection error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:598)”' or similar.</p>
+<p>So pip can't verify the proxy server certificate. I'm running Ubuntu 18 WSL, so lets fix this. Firstly grab the certificate from the proxy. Firefox lets you download the intermediate certificate - double click on the padlock &gt; Show connection details &gt; More information &gt; View Certificate. Make sure you're looking at the proxy certificate and save the PEM (cert) file. Copy the downloaded PEM file to /etc/ssl/certs and update the certificates using sudo update-ca-certificates. pip will thank you and install stuff happily.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://john-howard.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
